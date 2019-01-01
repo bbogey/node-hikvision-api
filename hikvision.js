@@ -53,7 +53,10 @@ hikvision.prototype.connect = function(options) {
 	});
 
 	client.on('error', function(err) {
-		handleError(self, err)
+		console.log(err);
+                setTimeout(function() { self.connect(options) }, 30000 );
+                handleEnd(self)
+	//	handleError(self, err)
 	});
 }
 
